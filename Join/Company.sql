@@ -27,7 +27,7 @@ GROUP BY
 ORDER BY
 	[Unique products delivered] desc
 
--- A3 Av de produkter som inte längre finns I vårat sortiment, hur mycket har vi sålt för totalt till Tyskland?
+-- A3 Av de produkter som inte lÃ¤ngre finns I vÃ¥rat sortiment, hur mycket har vi sÃ¥lt fÃ¶r totalt till Tyskland?
 SELECT
 	o.Shipcountry,
 	SUM(od.UnitPrice * od.Quantity * (1.0 - CAST(REPLACE(Discount, ',', '.') AS FLOAT))) AS [Total value]
@@ -43,7 +43,7 @@ WHERE
 GROUP BY
 	o.ShipCountry
 
--- A4. För vilken produktkategori har vi högst lagervärde?
+-- A4. FÃ¶r vilken produktkategori har vi hÃ¶gst lagervÃ¤rde?
 SELECT
 	TOP 1
 	c.CategoryName,
@@ -57,9 +57,9 @@ GROUP BY
 ORDER BY
 	[Total value] desc
 
--- A5. Från vilken leverantör har vi sålt flest produkter totalt under sommaren 2013?
+-- A5. FrÃ¥n vilken leverantÃ¶r har vi sÃ¥lt flest produkter totalt under sommaren 2013?
 
--- Går på orders.Shippeddate NVARCHAR, 2013-06-01 till 2013-08-30, ID ->
+-- GÃ¥r pÃ¥ orders.Shippeddate NVARCHAR, 2013-06-01 till 2013-08-30, ID ->
 -- ORDERID - order_details.quantity - PRODUCTID -> 
 -- ID - products.SupplierId - SUPPLIERID -> 
 -- ID - supplier.CompanyName
