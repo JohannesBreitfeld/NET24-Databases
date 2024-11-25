@@ -31,12 +31,12 @@ ORDER BY
 DECLARE @GOT AS NVARCHAR(MAX) = '';
 
 SELECT
-	@GOT = @GOT + 'S‰song ' + CAST(Season AS NVARCHAR(10)) + ' s‰ndes frÂn ' 
+	@GOT = @GOT + 'S√§song ' + CAST(Season AS NVARCHAR(10)) + ' s√§ndes fr√•n ' 
          + FORMAT(MIN([Original air date]), 'MMMM', 'sv') + ' till ' 
          + FORMAT(MAX([Original air date]), 'MMMM yyyy', 'sv') + '. '
-         + 'Totalt s‰ndes ' + CAST(COUNT(*) AS NVARCHAR(10)) + ' avsnitt, '
-         + 'som i genomsnitt sÂgs av ' + FORMAT(AVG([U.S. viewers(millions)]), '0.0') 
-         + ' miljoner m‰nniskor i USA.' + CHAR(13)
+         + 'Totalt s√§ndes ' + CAST(COUNT(*) AS NVARCHAR(10)) + ' avsnitt, '
+         + 'som i genomsnitt s√•gs av ' + FORMAT(AVG([U.S. viewers(millions)]), '0.0') 
+         + ' miljoner m√§nniskor i USA.' + CHAR(13)
 FROM	
 	GameOfThrones
 GROUP BY
@@ -74,7 +74,7 @@ FROM
 GROUP BY
 	Region
 
--- E6 -- Inte helt nˆjd med resultatet, 245 resultat bÂde n‰r jag kˆr med trim och inte, men det verkar finnas kvar whitespaces innan vissa resultat.
+-- E6 -- Inte helt n√∂jd med resultatet, 245 resultat b√•de n√§r jag k√∂r med trim och inte, men det verkar finnas kvar whitespaces innan vissa resultat.
 SELECT
     REPLACE(REPLACE(REPLACE(  
 		CASE 
