@@ -1,4 +1,4 @@
----- C1. Av alla audiospår, vilken artist har längst total speltid?
+---- C1. Av alla audiospÃ¥r, vilken artist har lÃ¤ngst total speltid?
 SELECT
 	ar.Name AS Artist,
 	CONCAT(FORMAT(SUM(CAST(t.Milliseconds AS BIGINT)) / 3600000, '0'), 'h '
@@ -18,7 +18,7 @@ GROUP BY
 ORDER BY
 	SUM(CAST(t.Milliseconds AS BIGINT)) desc
 
--- C2. Vad är den genomsnittliga speltiden på den artistens låtar?
+-- C2. Vad Ã¤r den genomsnittliga speltiden pÃ¥ den artistens lÃ¥tar?
 SELECT
 	CONCAT(FORMAT(SUM(CAST(t.Milliseconds AS BIGINT)) / COUNT(t.TrackId) / 60000, '00'), 'min ',
 	FORMAT(SUM(CAST(t.Milliseconds AS BIGINT)) / COUNT(t.TrackId) % 60000 / 1000, '00'), 'seconds'
@@ -32,7 +32,7 @@ FROM
 WHERE
 	ar.Name = 'Iron Maiden'
 
--- C3. Vad är den sammanlagda filstorleken för all video?
+-- C3. Vad Ã¤r den sammanlagda filstorleken fÃ¶r all video?
 SELECT
 	CONCAT(FORMAT(SUM(CAST(t.bytes AS BIGINT)) / 1000000000.0, '0.00'), ' GB') AS [Total size]
 FROM
@@ -42,7 +42,7 @@ FROM
 WHERE
 	mt.Name	LIKE '%VIDEO%'
 
--- C4. Vilket är det högsta antal artister som finns på en enskild spellista?
+-- C4. Vilket Ã¤r det hÃ¶gsta antal artister som finns pÃ¥ en enskild spellista?
 SELECT
 	p.Name AS [Playlist Name],
 	p.playlistID,
@@ -60,7 +60,7 @@ GROUP BY
 ORDER BY
 	[Unique artists] desc
 
--- C5. Vilket är det genomsnittliga antalet artister per spellista?
+-- C5. Vilket Ã¤r det genomsnittliga antalet artister per spellista?
 SELECT 
     FORMAT(AVG(CAST([Unique artists] AS FLOAT)), '00.00') AS [Average unique artists per playlist]
 FROM (
